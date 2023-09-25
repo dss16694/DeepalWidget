@@ -163,20 +163,20 @@ public class CarWidgetProvider extends AppWidgetProvider {
             flag = PendingIntent.FLAG_UPDATE_CURRENT;
         }
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.car_data_widget);
-        Intent btIntent = new Intent(context, CarWidgetProvider.class).setAction(REFRESH_WIDGET);
-        PendingIntent btPendingIntent = PendingIntent.getBroadcast(context, 0, btIntent, flag);
-        remoteViews.setOnClickPendingIntent(R.id.iv_refresh, btPendingIntent);
+//        Intent btIntent = new Intent(context, CarWidgetProvider.class).setAction(REFRESH_WIDGET);
+//        PendingIntent btPendingIntent = PendingIntent.getBroadcast(context, 0, btIntent, flag);
+//        remoteViews.setOnClickPendingIntent(R.id.iv_refresh, btPendingIntent);
 
-        Intent appIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_DEEPAL_WIDGET);
-        PendingIntent appPendingIntent = PendingIntent.getBroadcast(context, 0, appIntent, flag);
-        remoteViews.setOnClickPendingIntent(R.id.carImg, appPendingIntent);
-        Intent amapIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_AMAP_WIDGET);
-        PendingIntent amapPendingIntent = PendingIntent.getBroadcast(context, 0, amapIntent, flag);
-        remoteViews.setOnClickPendingIntent(R.id.location_layout, amapPendingIntent);
+//        Intent appIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_DEEPAL_WIDGET);
+//        PendingIntent appPendingIntent = PendingIntent.getBroadcast(context, 0, appIntent, flag);
+//        remoteViews.setOnClickPendingIntent(R.id.carImg, appPendingIntent);
+//        Intent amapIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_AMAP_WIDGET);
+//        PendingIntent amapPendingIntent = PendingIntent.getBroadcast(context, 0, amapIntent, flag);
+//        remoteViews.setOnClickPendingIntent(R.id.location_layout, amapPendingIntent);
 
-        Intent batteryIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_BATTERY_WIDGET);
-        PendingIntent batteryPendingIntent = PendingIntent.getBroadcast(context, 0, batteryIntent, flag);
-        remoteViews.setOnClickPendingIntent(R.id.remainTimeText, batteryPendingIntent);
+//        Intent batteryIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_BATTERY_WIDGET);
+//        PendingIntent batteryPendingIntent = PendingIntent.getBroadcast(context, 0, batteryIntent, flag);
+//        remoteViews.setOnClickPendingIntent(R.id.remainTimeText, batteryPendingIntent);
         return remoteViews;
     }
 
@@ -188,23 +188,19 @@ public class CarWidgetProvider extends AppWidgetProvider {
         }
         if (carData != null) {
             Log.d(TAG, "车辆信息：" + carData);
-            if (carData.getColor() != null) {
-                Bitmap bitmap =  AndroidUtil.getImageFromAssetsFile(context, carData.getType() + carData.getColor() + ".png");
-                if (bitmap != null) {
-                    remoteViews.setImageViewBitmap(R.id.carImg, bitmap);
-                }
-            }
             remoteViews.setTextViewText(R.id.carNameText, carData.getCarName());
             remoteViews.setTextViewText(R.id.plateNumberText, carData.getPlateNumber());
-            remoteViews.setTextViewText(R.id.locationText, carData.getLocation());
-            remoteViews.setTextViewText(R.id.terminalTimeText, carData.getTerminalTime());
+//            remoteViews.setTextViewText(R.id.locationText, carData.getLocation());
+//            remoteViews.setTextViewText(R.id.terminalTimeText, carData.getTerminalTime());
             remoteViews.setTextViewText(R.id.totalOdometerText, carData.getTotalOdometer() + "km");
-            remoteViews.setTextViewText(R.id.temperatureText, carData.getVehicleTemperature() + "℃");
-
+//            remoteViews.setTextViewText(R.id.temperatureText, carData.getVehicleTemperature() + "℃");
+//            remoteViews.setTextViewText(R.id.lftyrepressure, CarData.getLftyrepressure()/100 + "bar");
+//            remoteViews.setTextViewText(R.id.lrtyrepressure, CarData.getLrtyrepressure()/100 + "bar");
+//            remoteViews.setTextViewText(R.id.rftyrepressure, CarData.getRftyrepressure()/100 + "bar");
+//            remoteViews.setTextViewText(R.id.rrtyrepressure, CarData.getRrtyrepressure()/100 + "bar");
             int powerPercent = Double.valueOf(carData.getRemainPower()).intValue();
 
             boolean isOil = carData.getRemainedOilMile() != null;
-
             if (isOil) {
                 // 增程版
                 remoteViews.setViewVisibility(R.id.power_layout, View.GONE);
@@ -231,15 +227,15 @@ public class CarWidgetProvider extends AppWidgetProvider {
 
             // 车锁状态
             if (carData.getLeftFrontDoorLock() == 0) {
-                remoteViews.setTextViewText(R.id.lockStatusText, "已闭锁");
-                remoteViews.setTextColor(R.id.lockStatusText, ContextCompat.getColor(context, R.color.lock_color));
-                remoteViews.setViewVisibility(R.id.lockImg, View.VISIBLE);
-                remoteViews.setViewVisibility(R.id.unlockImg, View.GONE);
+//                remoteViews.setTextViewText(R.id.lockStatusText, "已闭锁");
+//                remoteViews.setTextColor(R.id.lockStatusText, ContextCompat.getColor(context, R.color.lock_color));
+//                remoteViews.setViewVisibility(R.id.lockImg, View.VISIBLE);
+//                remoteViews.setViewVisibility(R.id.unlockImg, View.GONE);
             } else {
-                remoteViews.setTextViewText(R.id.lockStatusText, "已解锁");
-                remoteViews.setTextColor(R.id.lockStatusText, ContextCompat.getColor(context, R.color.unlock_color));
-                remoteViews.setViewVisibility(R.id.lockImg, View.GONE);
-                remoteViews.setViewVisibility(R.id.unlockImg, View.VISIBLE);
+//                remoteViews.setTextViewText(R.id.lockStatusText, "已解锁");
+//                remoteViews.setTextColor(R.id.lockStatusText, ContextCompat.getColor(context, R.color.unlock_color));
+//                remoteViews.setViewVisibility(R.id.lockImg, View.GONE);
+//                remoteViews.setViewVisibility(R.id.unlockImg, View.VISIBLE);
             }
 
             Bitmap bitmap;
@@ -275,7 +271,7 @@ public class CarWidgetProvider extends AppWidgetProvider {
             String lat = data.getString("lat");
             String lng = data.getString("lng");
             String location = data.getString("addrDesc");
-            remoteViews.setTextViewText(R.id.locationText, location);
+//            remoteViews.setTextViewText(R.id.locationText, location);
             try {
                 Uri uri = Uri.parse("amapuri://route/plan/?dlat=" + lat + "&dlon=" + lng + "&dname=" + location + "&dev=0&t=0");
                 Intent amapIntent = new Intent("android.intent.action.VIEW", uri);
@@ -297,8 +293,8 @@ public class CarWidgetProvider extends AppWidgetProvider {
      */
     private void showLoading(Context context) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.car_data_widget);
-        remoteViews.setViewVisibility(R.id.iv_refresh, View.VISIBLE);
-        remoteViews.setTextViewText(R.id.iv_refresh, "正在刷新...");
+        //remoteViews.setViewVisibility(R.id.iv_refresh, View.VISIBLE);
+        //remoteViews.setTextViewText(R.id.iv_refresh, "正在刷新...");
         refreshWidget(context, remoteViews);
     }
 
@@ -307,7 +303,7 @@ public class CarWidgetProvider extends AppWidgetProvider {
      */
     private void hideLoading(Context context) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.car_data_widget);
-        remoteViews.setTextViewText(R.id.iv_refresh, "刷新");
+        //remoteViews.setTextViewText(R.id.iv_refresh, "刷新");
         refreshWidget(context, remoteViews);
     }
 

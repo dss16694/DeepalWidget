@@ -61,6 +61,11 @@ public class CarData {
      * 车锁状态 0闭锁 1解锁
      */
     private Integer leftFrontDoorLock;
+
+    private Integer lrTyrePressure;
+    private Integer rrTyrePressure;
+    private Integer lfTyrePressure;
+    private Integer rfTyrePressure;
     /**
      * 车门状态 0关闭 1开启
      */
@@ -111,4 +116,6 @@ public class CarData {
      * 纬度
      */
     private Double lat;
+
+
 }

@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 import cn.xanderye.android.deepalwidget.MainActivity;
+import cn.xanderye.android.deepalwidget.R;
 import cn.xanderye.android.deepalwidget.constant.Constants;
 import cn.xanderye.android.deepalwidget.entity.CarData;
 import cn.xanderye.android.deepalwidget.util.DeepalUtil;
@@ -84,6 +85,10 @@ public class DeepalService {
                 carData.setTotalVoltage(data.getDouble("totalVoltage"));
                 carData.setTotalCurrent(data.getDouble("totalCurrent"));
                 carData.setChargDeltMins(data.getInteger("chargDeltMins"));
+                carData.setLftyrepressure(data.getInteger("lftyrepressure"));
+                carData.setLrtyrepressure(data.getInteger("lrtyrepressure"));
+                carData.setRftyrepressure(data.getInteger("rftyrepressure"));
+                carData.setRrtyrepressure(data.getInteger("rrtyrepressure"));
                 String remainedOilMile = data.getString("remainedOilMile");
                 // 总里程偏移
                 int totalOdometer = Double.valueOf(data.getString("totalOdometer")).intValue();
