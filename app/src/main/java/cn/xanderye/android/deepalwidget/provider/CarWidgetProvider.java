@@ -194,10 +194,10 @@ public class CarWidgetProvider extends AppWidgetProvider {
 //            remoteViews.setTextViewText(R.id.terminalTimeText, carData.getTerminalTime());
             remoteViews.setTextViewText(R.id.totalOdometerText, carData.getTotalOdometer() + "km");
 //            remoteViews.setTextViewText(R.id.temperatureText, carData.getVehicleTemperature() + "℃");
-//            remoteViews.setTextViewText(R.id.lftyrepressure, CarData.getLftyrepressure()/100 + "bar");
-//            remoteViews.setTextViewText(R.id.lrtyrepressure, CarData.getLrtyrepressure()/100 + "bar");
-//            remoteViews.setTextViewText(R.id.rftyrepressure, CarData.getRftyrepressure()/100 + "bar");
-//            remoteViews.setTextViewText(R.id.rrtyrepressure, CarData.getRrtyrepressure()/100 + "bar");
+            remoteViews.setTextViewText(R.id.lftyrepressure, (float)carData.getLfTyrePressure()/100 + "bar");
+            remoteViews.setTextViewText(R.id.lrtyrepressure, (float)carData.getLrTyrePressure()/100 + "bar");
+            remoteViews.setTextViewText(R.id.rftyrepressure, (float)carData.getRfTyrePressure()/100 + "bar");
+            remoteViews.setTextViewText(R.id.rrtyrepressure, (float)carData.getRrTyrePressure()/100 + "bar");
             int powerPercent = Double.valueOf(carData.getRemainPower()).intValue();
 
             boolean isOil = carData.getRemainedOilMile() != null;
@@ -249,10 +249,7 @@ public class CarWidgetProvider extends AppWidgetProvider {
                 remoteViews.setViewVisibility(R.id.remainTimeText, View.VISIBLE);
                 remoteViews.setTextViewText(R.id.remainTimeText, remainTime);
             } else {
-                bitmap = AndroidUtil.getImageFromAssetsFile(context, "power_icon.png");
-                if (bitmap != null) {
-                    remoteViews.setImageViewBitmap(chargeIconId, bitmap);
-                }
+                remoteViews.setImageViewResource(chargeIconId,R.drawable.power_icon);
                 remoteViews.setViewVisibility(R.id.remainTimeText, View.GONE);
             }
             return true;

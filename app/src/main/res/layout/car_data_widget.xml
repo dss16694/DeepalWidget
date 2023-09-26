@@ -23,10 +23,11 @@
                 android:id="@+id/carNameText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="5dp"
                 android:gravity="bottom|center"
                 android:text="我的爱车"
                 android:textFontWeight="1000"
+                android:textColor="@color/widget_text_color"
                 android:textSize="14dp"></TextView>
 
             <TextView
@@ -36,6 +37,7 @@
                 android:layout_marginLeft="16dp"
                 android:gravity="bottom|center"
                 android:text="浙BD88888"
+                android:textColor="@color/widget_text_color"
                 android:textSize="11dp"></TextView>
         </LinearLayout>
 
@@ -78,13 +80,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2.43bar"
+                    android:textColor="@color/widget_text_color"
                     android:gravity="right"
                     />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"></LinearLayout>
 
                 <TextView
@@ -92,6 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2.43bar"
+                    android:textColor="@color/widget_text_color"
                     android:gravity="right"
                     />
 
@@ -112,18 +116,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2.43bar"
+                    android:textColor="@color/widget_text_color"
                     android:gravity="left"
                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal"></LinearLayout>
                 <TextView
                     android:id="@+id/rrtyrepressure"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2.43bar"
+                    android:textColor="@color/widget_text_color"
                     android:gravity="left"
                     />
 
@@ -151,7 +157,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/power_icon" />
+                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,12 +175,14 @@
                             android:id="@+id/remainedPowerText"
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/widget_text_color"
                             android:text="" />
 
                         <TextView
                             android:id="@+id/remainedPowerMileText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:textColor="@color/widget_text_color"
                             android:text="" />
                     </LinearLayout>
 
@@ -221,6 +229,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="4dp"
                             android:gravity="center_vertical"
+                            android:textColor="@color/widget_text_color"
                             android:text=""
                             android:textSize="11dp" />
                     </LinearLayout>
@@ -261,6 +270,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="4dp"
                             android:gravity="center_vertical"
+                            android:textColor="@color/widget_text_color"
                             android:text=""
                             android:textSize="11dp" />
                     </LinearLayout>
@@ -306,7 +316,8 @@
                             android:layout_height="match_parent"
                             android:gravity="bottom"
                             android:text="总里程"
-                            android:textSize="11dp" />
+                            android:textColor="@color/widget_text_color"
+                             />
 
                         <TextView
                             android:id="@+id/totalOdometerText"
@@ -314,7 +325,7 @@
                             android:layout_height="match_parent"
                             android:gravity="bottom"
                             android:text=""
-                            android:textSize="11dp" />
+                            android:textColor="@color/widget_text_color" />
                     </LinearLayout>
 
                     <ProgressBar

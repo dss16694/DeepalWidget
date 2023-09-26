@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="widget_background_color">#FF000000</color>
+    <color name="widget_background_color">#80000000</color>
     <color name="progress_green">#3ec156</color>
     <color name="progress_orange">#eb9001</color>
     <color name="progress_background_color">#595656</color>

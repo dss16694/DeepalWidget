@@ -18,6 +18,7 @@ import cn.xanderye.android.deepalwidget.activity.BatteryActivity;
 import cn.xanderye.android.deepalwidget.constant.Constants;
 import cn.xanderye.android.deepalwidget.entity.CarData;
 import cn.xanderye.android.deepalwidget.provider.CarWidgetProvider;
+import cn.xanderye.android.deepalwidget.service.CarWidgetService;
 import cn.xanderye.android.deepalwidget.service.DeepalService;
 import cn.xanderye.android.deepalwidget.util.*;
 import com.alibaba.fastjson.JSON;
@@ -214,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         checkUpdate(this);
+        Intent startIntent = new Intent(this, CarWidgetService.class);
+        startService(startIntent);
     }
 
     private void initColorSpinner(String carType) {

@@ -85,10 +85,10 @@ public class DeepalService {
                 carData.setTotalVoltage(data.getDouble("totalVoltage"));
                 carData.setTotalCurrent(data.getDouble("totalCurrent"));
                 carData.setChargDeltMins(data.getInteger("chargDeltMins"));
-                carData.setLftyrepressure(data.getInteger("lftyrepressure"));
-                carData.setLrtyrepressure(data.getInteger("lrtyrepressure"));
-                carData.setRftyrepressure(data.getInteger("rftyrepressure"));
-                carData.setRrtyrepressure(data.getInteger("rrtyrepressure"));
+                carData.setLfTyrePressure(data.getInteger("lfTyrePressure"));
+                carData.setLrTyrePressure(data.getInteger("lrTyrePressure"));
+                carData.setRfTyrePressure(data.getInteger("rfTyrePressure"));
+                carData.setRrTyrePressure(data.getInteger("rrTyrePressure"));
                 String remainedOilMile = data.getString("remainedOilMile");
                 // 总里程偏移
                 int totalOdometer = Double.valueOf(data.getString("totalOdometer")).intValue();

@@ -61,7 +61,6 @@ public class CarData {
      * 车锁状态 0闭锁 1解锁
      */
     private Integer leftFrontDoorLock;
-
     private Integer lrTyrePressure;
     private Integer rrTyrePressure;
     private Integer lfTyrePressure;
