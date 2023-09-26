@@ -4,65 +4,40 @@
     android:layout_width="420dp"
     android:layout_height="105dp"
     android:background="@drawable/widget_background"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingLeft="8dp"
     android:paddingRight="8dp">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:layout_weight="1"
+        android:layout_height="105dp"
         android:orientation="horizontal">
-
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/carNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:gravity="bottom|center"
-                android:text="我的爱车"
-                android:textFontWeight="1000"
-                android:textColor="@color/widget_text_color"
-                android:textSize="14dp"></TextView>
-
-            <TextView
-                android:id="@+id/plateNumberText"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom|center"
-                android:text="浙BD88888"
-                android:textColor="@color/widget_text_color"
-                android:textSize="11dp"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/remainTimeText"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
                 android:gravity="center"
-                android:text=""
-                android:textColor="@color/charge_color"
-                android:textSize="12sp"
-                android:visibility="gone"></TextView>
-        </LinearLayout>
-    </LinearLayout>
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="bottom|center"
+                    android:text="胎压监控"
+                    android:textColor="@color/widget_text_color"
+                    android:textFontWeight="1000"
+                    android:textSize="14dp"></TextView>
 
+            </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -70,11 +45,18 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
                 <TextView
                     android:id="@+id/lftyrepressure"
                     android:layout_width="match_parent"
@@ -87,7 +69,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:orientation="horizontal"></LinearLayout>
 
                 <TextView
@@ -111,6 +93,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
                 <TextView
                     android:id="@+id/rftyrepressure"
                     android:layout_width="match_parent"
@@ -122,7 +110,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:orientation="horizontal"></LinearLayout>
                 <TextView
                     android:id="@+id/rrtyrepressure"
@@ -137,14 +125,45 @@
 
 
         </LinearLayout>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="0.7"
+            android:layout_weight="0.8"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="bottom|center"
+                    android:text="我的爱车"
+                    android:textColor="@color/widget_text_color"
+                    android:textFontWeight="1000"
+                    android:textSize="14dp"></TextView>
+
+                <TextView
+                    android:id="@+id/plateNumberText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="bottom|center"
+                    android:text="浙BD88888"
+                    android:textColor="@color/widget_text_color"
+                    android:textSize="11dp"></TextView>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/power_layout"
@@ -290,7 +309,7 @@
             <LinearLayout
                 android:id="@+id/total_layout"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -308,7 +327,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="18dp"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -338,10 +357,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"></LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 

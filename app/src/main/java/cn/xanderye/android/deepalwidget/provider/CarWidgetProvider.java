@@ -245,12 +245,8 @@ public class CarWidgetProvider extends AppWidgetProvider {
                 if (bitmap != null) {
                     remoteViews.setImageViewBitmap(chargeIconId, bitmap);
                 }
-                String remainTime = "充满剩余 " + CommonUtil.formatTime(carData.getChargDeltMins());
-                remoteViews.setViewVisibility(R.id.remainTimeText, View.VISIBLE);
-                remoteViews.setTextViewText(R.id.remainTimeText, remainTime);
             } else {
                 remoteViews.setImageViewResource(chargeIconId,R.drawable.power_icon);
-                remoteViews.setViewVisibility(R.id.remainTimeText, View.GONE);
             }
             return true;
         } else {
