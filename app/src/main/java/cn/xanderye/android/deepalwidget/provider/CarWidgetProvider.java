@@ -167,9 +167,9 @@ public class CarWidgetProvider extends AppWidgetProvider {
 //        PendingIntent btPendingIntent = PendingIntent.getBroadcast(context, 0, btIntent, flag);
 //        remoteViews.setOnClickPendingIntent(R.id.iv_refresh, btPendingIntent);
 
-//        Intent appIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_DEEPAL_WIDGET);
-//        PendingIntent appPendingIntent = PendingIntent.getBroadcast(context, 0, appIntent, flag);
-//        remoteViews.setOnClickPendingIntent(R.id.carImg, appPendingIntent);
+        Intent appIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_DEEPAL_WIDGET);
+        PendingIntent appPendingIntent = PendingIntent.getBroadcast(context, 0, appIntent, flag);
+        remoteViews.setOnClickPendingIntent(R.id.carImg, appPendingIntent);
 //        Intent amapIntent = new Intent(context, CarWidgetProvider.class).setAction(OPEN_AMAP_WIDGET);
 //        PendingIntent amapPendingIntent = PendingIntent.getBroadcast(context, 0, amapIntent, flag);
 //        remoteViews.setOnClickPendingIntent(R.id.location_layout, amapPendingIntent);

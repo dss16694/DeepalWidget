@@ -64,6 +64,7 @@
                     android:text="2.43bar"
                     android:textColor="@color/widget_text_color"
                     android:gravity="right"
+                    android:textSize="14dp"
                     />
 
 
@@ -79,6 +80,7 @@
                     android:text="2.43bar"
                     android:textColor="@color/widget_text_color"
                     android:gravity="right"
+                    android:textSize="14dp"
                     />
 
             </LinearLayout>
@@ -106,6 +108,7 @@
                     android:text="2.43bar"
                     android:textColor="@color/widget_text_color"
                     android:gravity="left"
+                    android:textSize="14dp"
                     />
 
                 <LinearLayout
@@ -119,6 +122,7 @@
                     android:text="2.43bar"
                     android:textColor="@color/widget_text_color"
                     android:gravity="left"
+                    android:textSize="14dp"
                     />
 
             </LinearLayout>
@@ -195,14 +199,16 @@
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
                             android:textColor="@color/widget_text_color"
-                            android:text="" />
+                            android:text=""
+                            android:textSize="14dp"/>
 
                         <TextView
                             android:id="@+id/remainedPowerMileText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="@color/widget_text_color"
-                            android:text="" />
+                            android:text=""
+                            android:textSize="14dp"/>
                     </LinearLayout>
 
                     <ProgressBar
@@ -336,6 +342,7 @@
                             android:gravity="bottom"
                             android:text="总里程"
                             android:textColor="@color/widget_text_color"
+                            android:textSize="14dp"
                              />
 
                         <TextView
@@ -344,7 +351,8 @@
                             android:layout_height="match_parent"
                             android:gravity="bottom"
                             android:text=""
-                            android:textColor="@color/widget_text_color" />
+                            android:textColor="@color/widget_text_color"
+                            android:textSize="14dp"/>
                     </LinearLayout>
 
                     <ProgressBar

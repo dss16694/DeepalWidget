@@ -18,7 +18,7 @@ public class Constants {
     public static final String CAR_TYPE_KEY = "carType";
     public static final String CAR_DATA_KEY = "carData";
     public static final String MAX_OIL_KEY = "maxOil";
-    public static final String DEEPAL_PACKAGE_NAME = "deepal.com.cn.app";
+    public static final String DEEPAL_PACKAGE_NAME = "cn.xanderye.android.deepalwidget";
     public static final String LAST_UPDATE_KEY = "lastUpdate";
     public static final String OFFSET_MILE_KEY = "offsetMile";
 
