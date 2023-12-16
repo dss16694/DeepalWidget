@@ -48,6 +48,15 @@
             <meta-data android:name="android.appwidget.provider"
                        android:resource="@xml/car_data_widget_config"/>
         </receiver>
+        <receiver android:name=".provider.TirePressureWidgetProvider"
+            android:label="@string/car_tire_pressure_widget_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/car_data_widget_config"/>
+        </receiver>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">深蓝小组件</string>
     <string name="car_data_widget_name">车辆信息</string>
+    <string name="car_tire_pressure_widget_name">胎压信息</string>
     <string name="car_control_widget_name">车辆控制</string>
     <string name="about_version">2.0.4</string>
     <string name="alert_message">

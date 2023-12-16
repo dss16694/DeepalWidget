@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-import androidx.core.content.ContextCompat;
+//import androidx.core.content.ContextCompat;
 import cn.xanderye.android.deepalwidget.R;
 import cn.xanderye.android.deepalwidget.activity.BatteryActivity;
 import cn.xanderye.android.deepalwidget.constant.Constants;

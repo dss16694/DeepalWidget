@@ -17,6 +17,7 @@ import java.util.concurrent.Executors;
 
 import cn.xanderye.android.deepalwidget.entity.CarData;
 import cn.xanderye.android.deepalwidget.provider.CarWidgetProvider;
+import cn.xanderye.android.deepalwidget.provider.TirePressureWidgetProvider;
 
 public class CarWidgetService extends Service {
     private static final long INTERVAL = 1000*60*1; // 更新间隔，以毫秒为单位
@@ -59,7 +60,10 @@ public class CarWidgetService extends Service {
                 AppWidgetManager manager = AppWidgetManager.getInstance(mContext);
                 RemoteViews carDataRemoteViews = CarWidgetProvider.bindButton(mContext);
                 CarWidgetProvider.getCarData(carData, mContext, carDataRemoteViews);
+                RemoteViews tirePresureRemoteViews = TirePressureWidgetProvider.bindButton(mContext);
+                TirePressureWidgetProvider.getCarData(carData, mContext, tirePresureRemoteViews);
                 manager.updateAppWidget(new ComponentName(mContext, CarWidgetProvider.class), carDataRemoteViews);
+                manager.updateAppWidget(new ComponentName(mContext, TirePressureWidgetProvider.class), tirePresureRemoteViews);
             } else {
                 msg = "刷新失败，请检查配置";
             }

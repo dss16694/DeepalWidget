@@ -18,6 +18,7 @@ import cn.xanderye.android.deepalwidget.activity.BatteryActivity;
 import cn.xanderye.android.deepalwidget.constant.Constants;
 import cn.xanderye.android.deepalwidget.entity.CarData;
 import cn.xanderye.android.deepalwidget.provider.CarWidgetProvider;
+import cn.xanderye.android.deepalwidget.provider.TirePressureWidgetProvider;
 import cn.xanderye.android.deepalwidget.service.CarWidgetService;
 import cn.xanderye.android.deepalwidget.service.DeepalService;
 import cn.xanderye.android.deepalwidget.util.*;
@@ -364,7 +365,10 @@ public class MainActivity extends AppCompatActivity {
                 AppWidgetManager manager = AppWidgetManager.getInstance(mContext);
                 RemoteViews carDataRemoteViews = CarWidgetProvider.bindButton(mContext);
                 CarWidgetProvider.getCarData(carData, mContext, carDataRemoteViews);
+                RemoteViews tirePresureRemoteViews = TirePressureWidgetProvider.bindButton(mContext);
+                TirePressureWidgetProvider.getCarData(carData, mContext, tirePresureRemoteViews);
                 manager.updateAppWidget(new ComponentName(mContext, CarWidgetProvider.class), carDataRemoteViews);
+                manager.updateAppWidget(new ComponentName(mContext, TirePressureWidgetProvider.class), tirePresureRemoteViews);
             } else {
                 msg = "刷新失败，请检查配置";
             }
