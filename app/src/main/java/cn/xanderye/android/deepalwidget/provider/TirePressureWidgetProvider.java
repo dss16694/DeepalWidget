@@ -6,9 +6,11 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
@@ -102,7 +104,12 @@ public class TirePressureWidgetProvider extends AppWidgetProvider {
         return remoteViews;
     }
 
-    public static boolean getCarData(CarData carData, Context context, RemoteViews remoteViews) {
+    public static void getCarData(CarData carData, Context context, RemoteViews remoteViews) {
+        SharedPreferences config = PreferenceManager.getDefaultSharedPreferences(context);
+        float saved_lftirepresure = config.getFloat("lftirepresure",0f);
+        float saved_lrtirepresure = config.getFloat("lrtirepresure",0f);
+        float saved_rftirepresure = config.getFloat("rftirepresure",0f);
+        float saved_rrtirepresure = config.getFloat("rrtirepresure",0f);
         if (carData == null) {
             DeepalService deepalService = DeepalService.getInstance();
             deepalService.setContext(context);
@@ -110,47 +117,61 @@ public class TirePressureWidgetProvider extends AppWidgetProvider {
         }
         if (carData != null) {
             Log.d(TAG, "胎压信息：" + carData);
+
             float lftirepresure = (float)carData.getLfTyrePressure()/100;
             float lrtirepresure = (float)carData.getLrTyrePressure()/100;
             float rftirepresure = (float)carData.getRfTyrePressure()/100;
             float rrtirepresure = (float)carData.getRfTyrePressure()/100;
-            remoteViews.setTextViewText(R.id.lftiretv2, lftirepresure + "");
-            remoteViews.setTextViewText(R.id.lrtiretv2, lrtirepresure + "");
-            remoteViews.setTextViewText(R.id.rftiretv2, rftirepresure + "");
-            remoteViews.setTextViewText(R.id.rrtiretv2, rrtirepresure + "");
-            if(lftirepresure < 2){
-                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_warning);
-            }else if(lftirepresure < 1.5 ){
-                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_error);
-            }else{
-                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_normal);
+            if(lftirepresure > 0 || lrtirepresure > 0 || rftirepresure > 0 || rrtirepresure > 0){
+                saved_lftirepresure = lftirepresure;
+                saved_lrtirepresure = lrtirepresure;
+                saved_rftirepresure = rftirepresure;
+                saved_rrtirepresure = rrtirepresure;
+                SharedPreferences.Editor edit = config.edit();
+                edit.putFloat("lftirepresure",lftirepresure);
+                edit.putFloat("lrtirepresure",lrtirepresure);
+                edit.putFloat("rftirepresure",rftirepresure);
+                edit.putFloat("rrtirepresure",rrtirepresure);
+                edit.apply();
+
             }
-            if(lrtirepresure < 2){
-                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_warning);
-            }else if(lrtirepresure < 1.5 ){
-                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_error);
-            }else{
-                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_normal);
-            }
-            if(rftirepresure < 2){
-                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_warning);
-            }else if(rftirepresure < 1.5 ){
-                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_error);
-            }else{
-                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_normal);
-            }
-            if(rrtirepresure < 2){
-                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_warning);
-            }else if(rrtirepresure < 1.5 ){
-                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_error);
-            }else{
-                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_normal);
-            }
-            return true;
+
+
         } else {
             Log.d(TAG, "车辆信息为null");
         }
-        return false;
+        remoteViews.setTextViewText(R.id.lftiretv2, saved_lftirepresure + "");
+        remoteViews.setTextViewText(R.id.lrtiretv2, saved_lrtirepresure + "");
+        remoteViews.setTextViewText(R.id.rftiretv2, saved_rftirepresure + "");
+        remoteViews.setTextViewText(R.id.rrtiretv2, saved_rrtirepresure + "");
+        if(saved_lftirepresure < 2){
+            remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_warning);
+        }else if(saved_lftirepresure < 1.5 ){
+            remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_error);
+        }else{
+            remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_normal);
+        }
+        if(saved_lrtirepresure < 2){
+            remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_warning);
+        }else if(saved_lrtirepresure < 1.5 ){
+            remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_error);
+        }else{
+            remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_normal);
+        }
+        if(saved_rftirepresure < 2){
+            remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_warning);
+        }else if(saved_rftirepresure < 1.5 ){
+            remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_error);
+        }else{
+            remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_normal);
+        }
+        if(saved_rrtirepresure < 2){
+            remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_warning);
+        }else if(saved_rrtirepresure < 1.5 ){
+            remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_error);
+        }else{
+            remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_normal);
+        }
     }
 
     private void refreshWidget(Context context, RemoteViews remoteViews) {
