@@ -12,6 +12,7 @@ public class Constants {
     public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static final String TOKEN_KEY = "token";
+    public static final String SESSION_KEY_KEY = "sessionKey";
     public static final String DEVICE_ID_KEY = "deviceId";
     public static final String REFRESH_TOKEN_KEY = "refreshToken";
     public static final String CAC_TOKEN_KEY = "cacToken";

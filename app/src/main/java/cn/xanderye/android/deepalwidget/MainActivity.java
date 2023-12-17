@@ -28,6 +28,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -260,10 +261,22 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "请填写token", Toast.LENGTH_SHORT).show();
             return;
         }
+        String deviceId = config.getString(Constants.DEVICE_ID_KEY, null);
+        if (deviceId == null) {
+            deviceId = DeepalUtil.uuid(36);
+        }
+        String key = config.getString(Constants.SESSION_KEY_KEY, null);
+        boolean noKey = null == key;
+        if (noKey) {
+            key = UUID.randomUUID().toString();
+        }
+        DeepalUtil.setConfig(deviceId, key);
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
         int finalMaxOil = maxOil;
         int finalOffsetMile = offsetMile;
         String finalToken = token;
+        String finalKey = key;
+        String finalDeviceId = deviceId;
         /*String finalRefreshToken = refreshToken;*/
         singleThreadExecutor.execute(() -> {
             Looper.prepare();
@@ -271,6 +284,16 @@ public class MainActivity extends AppCompatActivity {
                 String newRefreshToken = null;
                 String accessToken = null;
                 if (finalToken != null) {
+                    if (noKey) {
+                        // 生成的会话密钥提交给服务端
+                        try {
+                            DeepalUtil.sessionKeyRetry(finalToken, finalKey);
+                        } catch (Exception e) {
+                            Toast.makeText(this, "提交会话密钥失败", Toast.LENGTH_SHORT).show();
+                            runOnUiThread(() -> saveBtn.setEnabled(true));
+                            return;
+                        }
+                    }
                     // 使用登录token获取信息
                     JSONObject res = DeepalUtil.getCacTokenByAuthToken(finalToken);
                     if (res.getInteger("code") != 200) {
@@ -319,6 +342,8 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor edit = config.edit();
                 edit.putString(Constants.TOKEN_KEY, finalToken);
+                edit.putString(Constants.SESSION_KEY_KEY, finalKey);
+                edit.putString(Constants.DEVICE_ID_KEY, finalDeviceId);
                 edit.putString(Constants.REFRESH_TOKEN_KEY, newRefreshToken);
                 edit.putString(Constants.CAC_TOKEN_KEY, accessToken);
                 edit.putString(Constants.CAR_DATA_KEY, carData.toJSONString());

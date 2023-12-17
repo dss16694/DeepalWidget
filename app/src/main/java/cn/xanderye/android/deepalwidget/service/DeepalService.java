@@ -31,6 +31,8 @@ public class DeepalService {
 
     private JSONObject carDataJSON;
     private String token = null;
+    private String sessionKey = null;
+    private String deviceId = null;
     private String refreshToken = null;
     private String cacToken = null;
     private String carType = "SL03";
@@ -295,6 +297,9 @@ public class DeepalService {
             carDataJSON = JSON.parseObject(carDataStr);
         }
         token = config.getString(Constants.TOKEN_KEY, null);
+        sessionKey = config.getString(Constants.SESSION_KEY_KEY, null);
+        deviceId = config.getString(Constants.DEVICE_ID_KEY, null);
+        DeepalUtil.setConfig(deviceId, sessionKey);
         refreshToken = config.getString(Constants.REFRESH_TOKEN_KEY, null);
         cacToken = config.getString(Constants.CAC_TOKEN_KEY, null);
         maxOil = config.getInt(Constants.MAX_OIL_KEY, Constants.DEFAULT_MILE_MILE);
