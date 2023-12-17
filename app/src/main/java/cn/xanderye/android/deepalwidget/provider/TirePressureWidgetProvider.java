@@ -110,10 +110,42 @@ public class TirePressureWidgetProvider extends AppWidgetProvider {
         }
         if (carData != null) {
             Log.d(TAG, "胎压信息：" + carData);
-            remoteViews.setTextViewText(R.id.lftiretv2, (float)carData.getLfTyrePressure()/100 + "");
-            remoteViews.setTextViewText(R.id.lrtiretv2, (float)carData.getLrTyrePressure()/100 + "");
-            remoteViews.setTextViewText(R.id.rftiretv2, (float)carData.getRfTyrePressure()/100 + "");
-            remoteViews.setTextViewText(R.id.rrtiretv2, (float)carData.getRrTyrePressure()/100 + "");
+            float lftirepresure = (float)carData.getLfTyrePressure()/100;
+            float lrtirepresure = (float)carData.getLrTyrePressure()/100;
+            float rftirepresure = (float)carData.getRfTyrePressure()/100;
+            float rrtirepresure = (float)carData.getRfTyrePressure()/100;
+            remoteViews.setTextViewText(R.id.lftiretv2, lftirepresure + "");
+            remoteViews.setTextViewText(R.id.lrtiretv2, lrtirepresure + "");
+            remoteViews.setTextViewText(R.id.rftiretv2, rftirepresure + "");
+            remoteViews.setTextViewText(R.id.rrtiretv2, rrtirepresure + "");
+            if(lftirepresure < 2){
+                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_warning);
+            }else if(lftirepresure < 1.5 ){
+                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_error);
+            }else{
+                remoteViews.setImageViewResource(R.id.lfwheel,R.drawable.dc_normal);
+            }
+            if(lrtirepresure < 2){
+                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_warning);
+            }else if(lrtirepresure < 1.5 ){
+                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_error);
+            }else{
+                remoteViews.setImageViewResource(R.id.lrwheel,R.drawable.dc_normal);
+            }
+            if(rftirepresure < 2){
+                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_warning);
+            }else if(rftirepresure < 1.5 ){
+                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_error);
+            }else{
+                remoteViews.setImageViewResource(R.id.rfwheel,R.drawable.dc_normal);
+            }
+            if(rrtirepresure < 2){
+                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_warning);
+            }else if(rrtirepresure < 1.5 ){
+                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_error);
+            }else{
+                remoteViews.setImageViewResource(R.id.rrwheel,R.drawable.dc_normal);
+            }
             return true;
         } else {
             Log.d(TAG, "车辆信息为null");

@@ -218,7 +218,10 @@ public class MainActivity extends AppCompatActivity {
 
         checkUpdate(this);
         Intent startIntent = new Intent(this, CarWidgetService.class);
-        startService(startIntent);
+        if(!config.getString(Constants.SESSION_KEY_KEY,"").isEmpty()){
+            startService(startIntent);
+        }
+
     }
 
     private void initColorSpinner(String carType) {
@@ -297,7 +300,11 @@ public class MainActivity extends AppCompatActivity {
                     // 使用登录token获取信息
                     JSONObject res = DeepalUtil.getCacTokenByAuthToken(finalToken);
                     if (res.getInteger("code") != 200) {
-                        Toast.makeText(this, "token无效", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "token无效,已清除key和device_id，请重新保存", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor edit = config.edit();
+                        edit.remove(Constants.SESSION_KEY_KEY);
+                        edit.remove(Constants.DEVICE_ID_KEY);
+                        edit.apply();
                         runOnUiThread(() -> saveBtn.setEnabled(true));
                         return;
                     }

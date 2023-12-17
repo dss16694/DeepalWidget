@@ -10,9 +10,9 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 204,
-      "versionName": "2.0.4",
-      "outputFile": "app-release.apk"
+      "versionCode": 206,
+      "versionName": "2.0.6",
+      "outputFile": "深蓝小组件_2.0.6.apk"
     }
   ]
 }
