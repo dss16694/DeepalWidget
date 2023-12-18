@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "cn.xanderye.android.deepalwidget"
-        minSdkVersion 27
+        minSdkVersion 26
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
         versionCode 206

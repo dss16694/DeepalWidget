@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="450dp"
+    android:layout_height="140dp"
+    android:background="#00ffffff"
+    android:orientation="horizontal"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/powerlayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/powericonView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/power_icon" />
+
+
+                <TextView
+                    android:id="@+id/powermileperView"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical|end"
+                    android:text="50.0%"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/powermileView"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical|end"
+                    android:text="375 km"
+                    android:layout_marginRight="10dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/oillayout"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <ImageView
+                    android:id="@+id/oiliconView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/oil_icon" />
+                <TextView
+                    android:id="@+id/oilmileperView"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+
+                    android:gravity="center_vertical|end"
+                    android:text="50.0%"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/oilmileView"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical|end"
+                    android:text="735 km"
+                    android:layout_marginRight="10dp"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/milelayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/totaliconView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/mileage_icon" />
+                <TextView
+                    android:id="@+id/totalmileView"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:text="35678 km"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/statisticslayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <View
+                android:layout_width="1dp"
+                android:background="#f4f4f4"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/powericons" />
+                    <TextView
+                        android:id="@+id/powerconsView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical|end"
+                        android:text="15.8 kWh/100km"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/achievementrate" />
+                    <TextView
+                        android:id="@+id/achivrateView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="100.0%"
+                        android:textSize="20dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
